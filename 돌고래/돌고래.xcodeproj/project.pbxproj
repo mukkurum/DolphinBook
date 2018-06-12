@@ -8,27 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		5D97DCC132790791E6709A02 /* Pods________.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569C40AEBD34BCA81A17315 /* Pods________.framework */; };
+		BB0FAA7B20CD95FF00F312C6 /* DolphinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0FAA7A20CD95FF00F312C6 /* DolphinController.swift */; };
+		BB0FAA7F20CD972400F312C6 /* Database1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0FAA7E20CD972400F312C6 /* Database1.swift */; };
 		BB92DEDC20B8034A000E4AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92DEDB20B8034A000E4AB1 /* AppDelegate.swift */; };
-		BB92DEDE20B8034A000E4AB1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92DEDD20B8034A000E4AB1 /* FirstViewController.swift */; };
-		BB92DEE020B8034A000E4AB1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92DEDF20B8034A000E4AB1 /* SecondViewController.swift */; };
+		BB92DEDE20B8034A000E4AB1 /* ExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92DEDD20B8034A000E4AB1 /* ExpenseController.swift */; };
+		BB92DEE020B8034A000E4AB1 /* IncomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92DEDF20B8034A000E4AB1 /* IncomeController.swift */; };
 		BB92DEE320B8034A000E4AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB92DEE120B8034A000E4AB1 /* Main.storyboard */; };
 		BB92DEE520B8034A000E4AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB92DEE420B8034A000E4AB1 /* Assets.xcassets */; };
 		BB92DEE820B8034A000E4AB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB92DEE620B8034A000E4AB1 /* LaunchScreen.storyboard */; };
-		BBB0668A20CA61F80098F71F /* ExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB0668920CA61F80098F71F /* ExpenseController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A5673E407EE050805BD9131 /* Pods-돌고래.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-돌고래.debug.xcconfig"; path = "Pods/Target Support Files/Pods-돌고래/Pods-돌고래.debug.xcconfig"; sourceTree = "<group>"; };
+		BB0FAA7A20CD95FF00F312C6 /* DolphinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DolphinController.swift; sourceTree = "<group>"; };
+		BB0FAA7E20CD972400F312C6 /* Database1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database1.swift; sourceTree = "<group>"; };
 		BB92DED820B8034A000E4AB1 /* 돌고래.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "돌고래.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB92DEDB20B8034A000E4AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB92DEDD20B8034A000E4AB1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BB92DEDF20B8034A000E4AB1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BB92DEDD20B8034A000E4AB1 /* ExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseController.swift; sourceTree = "<group>"; };
+		BB92DEDF20B8034A000E4AB1 /* IncomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeController.swift; sourceTree = "<group>"; };
 		BB92DEE220B8034A000E4AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB92DEE420B8034A000E4AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB92DEE720B8034A000E4AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB92DEE920B8034A000E4AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBB0668920CA61F80098F71F /* ExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseController.swift; sourceTree = "<group>"; };
-		C569C40AEBD34BCA81A17315 /* Pods________.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods________.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C569C40AEBD34BCA81A17315 /* Pods________.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods________.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5DB8320791475B4DF283DF /* Pods-돌고래.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-돌고래.release.xcconfig"; path = "Pods/Target Support Files/Pods-돌고래/Pods-돌고래.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,10 +85,11 @@
 			isa = PBXGroup;
 			children = (
 				BB92DEDB20B8034A000E4AB1 /* AppDelegate.swift */,
-				BB92DEDD20B8034A000E4AB1 /* FirstViewController.swift */,
-				BB92DEDF20B8034A000E4AB1 /* SecondViewController.swift */,
+				BB0FAA7E20CD972400F312C6 /* Database1.swift */,
+				BB0FAA7A20CD95FF00F312C6 /* DolphinController.swift */,
+				BB92DEDD20B8034A000E4AB1 /* ExpenseController.swift */,
+				BB92DEDF20B8034A000E4AB1 /* IncomeController.swift */,
 				BB92DEE120B8034A000E4AB1 /* Main.storyboard */,
-				BBB0668920CA61F80098F71F /* ExpenseController.swift */,
 				BB92DEE420B8034A000E4AB1 /* Assets.xcassets */,
 				BB92DEE620B8034A000E4AB1 /* LaunchScreen.storyboard */,
 				BB92DEE920B8034A000E4AB1 /* Info.plist */,
@@ -123,7 +126,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "김 정연";
 				TargetAttributes = {
 					BB92DED720B8034A000E4AB1 = {
@@ -207,10 +210,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB92DEE020B8034A000E4AB1 /* SecondViewController.swift in Sources */,
+				BB0FAA7B20CD95FF00F312C6 /* DolphinController.swift in Sources */,
+				BB0FAA7F20CD972400F312C6 /* Database1.swift in Sources */,
+				BB92DEE020B8034A000E4AB1 /* IncomeController.swift in Sources */,
 				BB92DEDC20B8034A000E4AB1 /* AppDelegate.swift in Sources */,
-				BBB0668A20CA61F80098F71F /* ExpenseController.swift in Sources */,
-				BB92DEDE20B8034A000E4AB1 /* FirstViewController.swift in Sources */,
+				BB92DEDE20B8034A000E4AB1 /* ExpenseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +254,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -257,6 +262,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -307,6 +313,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -314,6 +321,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

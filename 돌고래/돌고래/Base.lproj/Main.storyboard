@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
+        <!--Dolphin Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="DolphinController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,13 +41,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1110" title="" image="돌고래" largeContentSizeImage="돌고래" selectedImage="돌고래" id="acW-dT-cKf">
+                    <tabBarItem key="tabBarItem" tag="1110" title="" image="돌고래_bar" selectedImage="돌고래_bar" id="acW-dT-cKf">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="100" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="-650"/>
+            <point key="canvasLocation" x="800.79999999999995" y="-650.82458770614699"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ETC-h7-OVI">
@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="2089" y="140"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Expense Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="ExpenseController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,7 +186,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="지출" selectedImage="지출" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="지출_bar" selectedImage="지출_bar" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -300,10 +300,10 @@
             </objects>
             <point key="canvasLocation" x="2089" y="866"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Income Controller-->
         <scene sceneID="rz1-lb-idm">
             <objects>
-                <viewController id="mFl-Hj-cNd" customClass="SecondViewController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mFl-Hj-cNd" customClass="IncomeController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cj3-ut-50z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -348,7 +348,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v7b-vA-ssq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="수입" selectedImage="수입" id="mWr-Vr-cYd"/>
+                    <tabBarItem key="tabBarItem" title="" image="수입_bar" selectedImage="수입_bar" id="mWr-Vr-cYd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldH-ka-Tx1" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,12 +356,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="돌고래" width="50" height="35"/>
+        <image name="돌고래_bar" width="50" height="35"/>
         <image name="돌고래_기본" width="1046" height="922"/>
-        <image name="수입" width="50" height="35"/>
-        <image name="지출" width="50" height="35"/>
+        <image name="수입_bar" width="50" height="35"/>
+        <image name="지출_bar" width="50" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T05-PV-qaN"/>
+        <segue reference="8JD-0e-1PI"/>
     </inferredMetricsTieBreakers>
 </document>

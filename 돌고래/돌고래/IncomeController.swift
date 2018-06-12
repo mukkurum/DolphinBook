@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  IncomeController.swift
 //  돌고래
 //
 //  Created by Kim JungYeon on 2018. 5. 25..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class IncomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
