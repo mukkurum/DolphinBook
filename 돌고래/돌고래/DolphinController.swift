@@ -25,7 +25,7 @@ class DolphinController: UIViewController {
             return comps.date
         }()
         
-        database.addExpense(time_: date_!, money_: 10000, content_: "구공탄")
+//        database.addExpense(time_: date_!, money_: 10000, content_: "구공탄")
         //@@@@@@@@@@ 지출 입력 끝 @@@@@@@@@@
         
         //@@@@@@@@@@ 지출 출력 시작 @@@@@@@@@@
