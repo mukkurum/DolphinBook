@@ -82,7 +82,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showPopup:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="lPW-6F-oFf"/>
+                                    <action selector="showPopup:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="HYI-eg-fg0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -191,7 +191,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="closePopUp:" destination="6zw-NH-lj3" eventType="touchUpInside" id="ucD-67-tup"/>
+                                            <action selector="closePopup:" destination="6zw-NH-lj3" eventType="touchUpInside" id="UkT-Dy-aev"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="수입내역" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBw-RS-O9y">
@@ -254,7 +254,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showPopup:" destination="mFl-Hj-cNd" eventType="touchUpInside" id="JuS-KF-QeJ"/>
+                                    <action selector="showPopup:" destination="mFl-Hj-cNd" eventType="touchUpInside" id="3nR-0b-3Rp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -279,7 +279,7 @@
         <scene sceneID="0xN-cI-v1Z">
             <objects>
                 <viewController storyboardIdentifier="expense_history" id="xZ6-bB-emV" customClass="PopupViewController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="income_history" id="EpN-Db-Yng">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="expense_history" id="EpN-Db-Yng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -344,7 +344,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="closePopUp:" destination="xZ6-bB-emV" eventType="touchUpInside" id="zGQ-lf-bMi"/>
+                                            <action selector="closePopup:" destination="xZ6-bB-emV" eventType="touchUpInside" id="ekP-Pb-mPW"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="지출내역" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgX-UO-nrR">

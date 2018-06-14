@@ -17,16 +17,16 @@ class PopupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func closePopUp(_ sender: Any) {
-        self.view.removeFromSuperview()
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func closePopup(_ sender: Any) {
+        self.view.removeFromSuperview()
+    }
+    
     /*
     // MARK: - Navigation
 
