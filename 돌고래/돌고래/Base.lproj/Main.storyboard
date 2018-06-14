@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Popup View Controller-->
+        <!--Income Popup View Controller-->
         <scene sceneID="cpm-ki-DhT">
             <objects>
-                <viewController storyboardIdentifier="income_history" id="6zw-NH-lj3" customClass="PopupViewController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="income_history" id="6zw-NH-lj3" customClass="IncomePopupViewController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="income_history" id="jsg-W2-P8P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,6 +182,9 @@
                                         <state key="normal" title="확인">
                                             <color key="titleColor" red="0.99990516900000004" green="1" blue="0.99987047910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="inomeSave:" destination="6zw-NH-lj3" eventType="touchUpInside" id="aIU-0x-sjB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDd-St-85G">
                                         <rect key="frame" x="213" y="338" width="80" height="50"/>
@@ -191,7 +194,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="closePopup:" destination="6zw-NH-lj3" eventType="touchUpInside" id="UkT-Dy-aev"/>
+                                            <action selector="closePopup:" destination="6zw-NH-lj3" eventType="touchUpInside" id="xa2-yg-q6p"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="수입내역" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBw-RS-O9y">
@@ -216,6 +219,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mna-tE-htY"/>
                     </view>
+                    <connections>
+                        <outlet property="incomeContent" destination="Na3-Gw-Iy2" id="JnE-Wl-v0F"/>
+                        <outlet property="incomeDate" destination="jBZ-a6-DWc" id="8uT-rB-uHv"/>
+                        <outlet property="incomeMoney" destination="uK5-jh-Kiq" id="9gS-6k-so3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckn-aN-AwL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -275,10 +283,10 @@
             </objects>
             <point key="canvasLocation" x="801" y="866"/>
         </scene>
-        <!--Popup View Controller-->
+        <!--Expense Popup View Controller-->
         <scene sceneID="0xN-cI-v1Z">
             <objects>
-                <viewController storyboardIdentifier="expense_history" id="xZ6-bB-emV" customClass="PopupViewController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="expense_history" id="xZ6-bB-emV" customClass="ExpensePopupViewController" customModule="_______" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="expense_history" id="EpN-Db-Yng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -307,21 +315,21 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nn3-oO-Ncu">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="메모할 내용을 적어주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nn3-oO-Ncu">
                                         <rect key="frame" x="91" y="247" width="226" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cOr-h6-LZg">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="금액을 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cOr-h6-LZg">
                                         <rect key="frame" x="91" y="184" width="226" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ft-0q-VSX">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="날짜를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ft-0q-VSX">
                                         <rect key="frame" x="91" y="124" width="226" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
@@ -335,6 +343,9 @@
                                         <state key="normal" title="확인">
                                             <color key="titleColor" red="0.99990516900000004" green="1" blue="0.99987047910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="expenseSave:" destination="xZ6-bB-emV" eventType="touchUpInside" id="1e9-8d-PE7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2K9-p3-gti">
                                         <rect key="frame" x="213" y="338" width="80" height="50"/>
@@ -369,6 +380,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LKi-zn-z0a"/>
                     </view>
+                    <connections>
+                        <outlet property="expenseContent" destination="Nn3-oO-Ncu" id="fTO-2M-4O0"/>
+                        <outlet property="expenseDate" destination="2ft-0q-VSX" id="YTK-QN-Ne1"/>
+                        <outlet property="expenseMoney" destination="cOr-h6-LZg" id="94n-4c-hWp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ute-E8-92h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

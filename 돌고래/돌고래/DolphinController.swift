@@ -12,25 +12,8 @@ class DolphinController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         // 데이터 베이스 생성
-        let database = Database1(DBName: "db_test1")
-        
-        
-        //@@@@@@@@@@ 지출 입력 시작 @@@@@@@@@@
-        let calendar = Calendar(identifier: .gregorian)
-        let date_: Date? = {
-            let comps = DateComponents(calendar:calendar, year:2018, month:6, day:1)
-            return comps.date
-        }()
-        
-//        database.addExpense(time_: date_!, money_: 10000, content_: "구공탄")
-        //@@@@@@@@@@ 지출 입력 끝 @@@@@@@@@@
-        
-        //@@@@@@@@@@ 지출 출력 시작 @@@@@@@@@@
-        database.loadExpense()
-        //@@@@@@@@@@ 지출 출력 끝 @@@@@@@@@@
+//        let database = Database1(DBName: "db_dolphin1")      
     }
 
     override func didReceiveMemoryWarning() {
