@@ -53,7 +53,8 @@ class ExpensePopupViewController: UIViewController {
         }
         self.view.removeFromSuperview()
         // 지출 출력
-        database.loadExpense()
+//        database.loadExpense()
+        
     }
     
     let datePicker = UIDatePicker()

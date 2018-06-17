@@ -70,6 +70,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G0s-lb-294">
+                                <rect key="frame" x="0.0" y="67" width="375" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tWw-uN-Qae">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tWw-uN-Qae" id="Ux7-zw-HNN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QNX-6J-iJI">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QNX-6J-iJI" id="6aG-gt-BJq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8rJ-Kc-sve" id="8EH-8y-Ub7"/>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="jT2-en-0Fq"/>
+                                </connections>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKA-mb-E2h">
                                 <rect key="frame" x="300" y="543" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.2888349657" green="0.43485298639999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -91,17 +117,24 @@
                             <constraint firstItem="dbl-46-lwT" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="2HQ-Cl-C4l"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="LKA-mb-E2h" secondAttribute="trailing" constant="45" id="5DK-SJ-buf"/>
                             <constraint firstItem="uEa-g9-VMV" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="9f1-tS-XEE"/>
+                            <constraint firstItem="G0s-lb-294" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="ErP-iC-hrT"/>
+                            <constraint firstItem="G0s-lb-294" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="Oe9-dN-u1W"/>
+                            <constraint firstItem="G0s-lb-294" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="Q8P-dM-S2P"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="uEa-g9-VMV" secondAttribute="trailing" constant="50" id="VuJ-jG-WWI"/>
                             <constraint firstItem="dbl-46-lwT" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="15" id="d76-ke-XX8"/>
+                            <constraint firstItem="G0s-lb-294" firstAttribute="top" secondItem="dbl-46-lwT" secondAttribute="bottom" constant="8" id="m4N-qT-RaZ"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="LKA-mb-E2h" secondAttribute="bottom" constant="45" id="tBl-37-M2s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="지출_bar" selectedImage="지출_bar" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="expenseTableview" destination="G0s-lb-294" id="U5L-T8-IjR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="140"/>
+            <point key="canvasLocation" x="800.79999999999995" y="139.880059970015"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -250,6 +283,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2rC-Fb-5Hr">
+                                <rect key="frame" x="0.0" y="67" width="375" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8g-0o-r9N">
                                 <rect key="frame" x="300" y="543" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.2888349657" green="0.43485298639999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -268,10 +305,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2rC-Fb-5Hr" firstAttribute="bottom" secondItem="v7b-vA-ssq" secondAttribute="bottom" id="BIy-im-c1x"/>
                             <constraint firstItem="v7b-vA-ssq" firstAttribute="bottom" secondItem="N8g-0o-r9N" secondAttribute="bottom" constant="45" id="GMt-lb-EbJ"/>
+                            <constraint firstItem="2rC-Fb-5Hr" firstAttribute="leading" secondItem="v7b-vA-ssq" secondAttribute="leading" id="I82-BM-sFI"/>
                             <constraint firstItem="v7b-vA-ssq" firstAttribute="trailing" secondItem="cHi-Mn-nlM" secondAttribute="trailing" constant="50" id="L0l-uM-qbb"/>
                             <constraint firstItem="v7b-vA-ssq" firstAttribute="trailing" secondItem="N8g-0o-r9N" secondAttribute="trailing" constant="45" id="LBi-60-aDG"/>
                             <constraint firstItem="nSM-Ka-kXx" firstAttribute="top" secondItem="v7b-vA-ssq" secondAttribute="top" constant="15" id="SEk-yd-00G"/>
+                            <constraint firstItem="2rC-Fb-5Hr" firstAttribute="top" secondItem="nSM-Ka-kXx" secondAttribute="bottom" constant="8" id="oW5-66-Cij"/>
+                            <constraint firstItem="2rC-Fb-5Hr" firstAttribute="trailing" secondItem="v7b-vA-ssq" secondAttribute="trailing" id="peY-QL-iWg"/>
                             <constraint firstItem="nSM-Ka-kXx" firstAttribute="centerX" secondItem="cj3-ut-50z" secondAttribute="centerX" id="sew-76-MEx"/>
                             <constraint firstItem="cHi-Mn-nlM" firstAttribute="top" secondItem="v7b-vA-ssq" secondAttribute="top" id="zwd-rg-l8p"/>
                         </constraints>
@@ -281,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldH-ka-Tx1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="866"/>
+            <point key="canvasLocation" x="800.79999999999995" y="865.81709145427294"/>
         </scene>
         <!--Expense Popup View Controller-->
         <scene sceneID="0xN-cI-v1Z">

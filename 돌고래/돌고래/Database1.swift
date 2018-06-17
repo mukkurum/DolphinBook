@@ -83,17 +83,34 @@ public class Database1 {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: from)
     }
-    // 지출 출력 함수
-    func loadExpense() {
+    // 지출 로드 함수
+    func loadExpense() -> Array<Array<String>> {
+        var expense_list: Array<Array<String>> = []
         do {
-            print("========== 지출 상황 ==========")
             for expense in try db!.prepare(self.ExpenseTable) {
+                var temp_list: Array<String> = []
                 let time_ = getStringDayInfo(from: expense[time])
                 print("time: \(time_), money: \(expense[money])원, content: \(expense[content])")
+                temp_list.append(time_)
+                temp_list.append(String(expense[money]))
+                temp_list.append(expense[content])
+                expense_list.append(temp_list)
             }
         } catch {
             print("Cannot get list of product")
         }
+        return expense_list
+        
+        
+//        do {
+//            print("========== 지출 상황 ==========")
+//            for expense in try db!.prepare(self.ExpenseTable) {
+//                let time_ = getStringDayInfo(from: expense[time])
+//                print("time: \(time_), money: \(expense[money])원, content: \(expense[content])")
+//            }
+//        } catch {
+//            print("Cannot get list of product")
+//        }
     }
     // 수입 출력 함수
     func loadIncome() {
