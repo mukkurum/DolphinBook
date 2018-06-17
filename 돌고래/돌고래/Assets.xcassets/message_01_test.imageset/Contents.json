@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "message_01_test.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "지출_tapbar.png",
       "scale" : "2x"
     },
     {

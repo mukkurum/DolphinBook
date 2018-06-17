@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "말풍선_04_test.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "dolphin_tapbar2.png",
       "scale" : "2x"
     },
     {

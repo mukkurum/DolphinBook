@@ -50,7 +50,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1110" title="" image="돌고래_tapbar" selectedImage="돌고래_tapbar" id="acW-dT-cKf">
+                    <tabBarItem key="tabBarItem" tag="1110" title="" image="dolphin_tapbar1" selectedImage="dolphin_tapbar1" id="acW-dT-cKf">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="100" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <connections>
@@ -79,24 +79,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G0s-lb-294">
                                 <rect key="frame" x="0.0" y="67" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tWw-uN-Qae">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tWw-uN-Qae" id="Ux7-zw-HNN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QNX-6J-iJI">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QNX-6J-iJI" id="6aG-gt-BJq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="8rJ-Kc-sve" id="8EH-8y-Ub7"/>
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="jT2-en-0Fq"/>
@@ -131,7 +113,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="지출_tapbar" selectedImage="지출_tapbar" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="dolphin_tapbar2" selectedImage="dolphin_tapbar2" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="expenseTableview" destination="G0s-lb-294" id="U5L-T8-IjR"/>
                     </connections>
@@ -317,7 +299,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v7b-vA-ssq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="수입_tapbar" selectedImage="수입_tapbar" id="mWr-Vr-cYd"/>
+                    <tabBarItem key="tabBarItem" title="" image="dolphin_tapbar3" selectedImage="dolphin_tapbar3" id="mWr-Vr-cYd"/>
                     <connections>
                         <outlet property="incomeTableview" destination="2rC-Fb-5Hr" id="P7S-Uw-mtj"/>
                     </connections>
@@ -435,8 +417,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="돌고래_tapbar" width="50" height="35"/>
-        <image name="수입_tapbar" width="50" height="35"/>
-        <image name="지출_tapbar" width="50" height="35"/>
+        <image name="dolphin_tapbar1" width="50" height="35"/>
+        <image name="dolphin_tapbar2" width="50" height="35"/>
+        <image name="dolphin_tapbar3" width="50" height="35"/>
     </resources>
 </document>
