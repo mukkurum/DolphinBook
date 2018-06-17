@@ -10,6 +10,9 @@ import Foundation
 import SQLite
 
 public class Database1 {
+    static let DolphinDatabase:Database1 = Database1(DBName: "db_dolphin1")
+    static var ExpenseList: Array<Array<String>> = []
+    static var IncomeList: Array<Array<String>> = []
     
     private let db: Connection?
     

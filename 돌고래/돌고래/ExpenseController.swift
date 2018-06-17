@@ -8,19 +8,25 @@
 
 import UIKit
 import SQLite
+protocol expenseDelgate {
+    func reloadData()
+}
 
-class ExpenseController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var list: Array<Array<String>> = []
+
+class ExpenseController: UIViewController, UITableViewDelegate, UITableViewDataSource, expenseDelgate {
     
+    func reloadData() {
+        self.expenseTableview.reloadData()
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(list.count)
+        return(Database1.ExpenseList.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
 
-        let row_ = list[indexPath.row]
-        cell.textLabel?.text = "time: \(row_[0]), money: \(row_[1])원, content: \(row_[2])"
+        let row_ = Database1.ExpenseList[indexPath.row]
+        cell.textLabel?.text = "\(row_[0]): \(row_[1])원, \(row_[2])"
         
         return(cell)
     }
@@ -28,7 +34,7 @@ class ExpenseController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        list = loadExpenseTable()
+        Database1.ExpenseList = loadExpenseTable()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -46,14 +52,14 @@ class ExpenseController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func loadExpenseTable() -> Array<Array<String>> {
-        // 데이터베이스 가져오기
-        let database = Database1(DBName: "db_dolphin1")
-        return database.loadExpense()
+        return Database1.DolphinDatabase.loadExpense()
     }
     @IBOutlet weak var expenseTableview: UITableView!
+    
     override func viewWillAppear(_ animated: Bool) {
+        Database1.ExpenseList = loadExpenseTable()
         self.expenseTableview.reloadData()
     }
-    
+
 }
 

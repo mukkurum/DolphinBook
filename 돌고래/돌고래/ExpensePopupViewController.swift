@@ -10,6 +10,8 @@ import UIKit
 
 class ExpensePopupViewController: UIViewController {
 
+    var delegate:expenseDelgate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +27,7 @@ class ExpensePopupViewController: UIViewController {
     
     // 지출, 수입 입력 취소 버튼
     @IBAction func closePopup(_ sender: Any) {
+        delegate?.reloadData()
         self.view.removeFromSuperview()
     }
     
@@ -34,7 +37,6 @@ class ExpensePopupViewController: UIViewController {
     
     // 지출 입력 확인 버튼
     @IBAction func expenseSave(_ sender: Any) {
-        let database = Database1(DBName: "db_dolphin1")
         // 지출 정보 미입력 시
         if (expenseDate.text?.isEmpty)! || expenseMoney.text == nil || (expenseContent.text?.isEmpty)! {
             print("textFields are empty!")
@@ -49,12 +51,16 @@ class ExpensePopupViewController: UIViewController {
             }()
             let input_money = Int(expenseMoney.text!)
             let input_content = expenseContent.text
-            database.addExpense(time_: date_!, money_: input_money!, content_: input_content!)
+            Database1.DolphinDatabase.addExpense(time_: date_!, money_: input_money!, content_: input_content!)
+            
+            var temp_list: Array<String> = []
+            temp_list.append(expenseDate.text!)
+            temp_list.append(expenseMoney.text!)
+            temp_list.append(expenseContent.text!)
+            Database1.ExpenseList.append(temp_list)
         }
+        delegate?.reloadData()
         self.view.removeFromSuperview()
-        // 지출 출력
-//        database.loadExpense()
-        
     }
     
     let datePicker = UIDatePicker()

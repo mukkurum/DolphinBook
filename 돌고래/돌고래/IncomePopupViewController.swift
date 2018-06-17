@@ -35,7 +35,6 @@ class IncomePopupViewController: UIViewController {
     @IBOutlet weak var incomeContent: UITextField!
     
     @IBAction func inomeSave(_ sender: Any) {
-        let database = Database1(DBName: "db_dolphin1")
         // 수입 정보 미입력 시
         if (incomeDate.text?.isEmpty)! || incomeMoney.text == nil || (incomeContent.text?.isEmpty)! {
             print("textFields are empty!")
@@ -50,11 +49,9 @@ class IncomePopupViewController: UIViewController {
             }()
             let input_money = Int(incomeMoney.text!)
             let input_content = incomeContent.text
-            database.addIncome(time_: date_!, money_: input_money!, content_: input_content!)
+            Database1.DolphinDatabase.addIncome(time_: date_!, money_: input_money!, content_: input_content!)
         }
         self.view.removeFromSuperview()
-        // 수입 출력
-        database.loadIncome()
     }
     
     let datePicker = UIDatePicker()
