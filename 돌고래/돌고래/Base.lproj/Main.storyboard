@@ -286,6 +286,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2rC-Fb-5Hr">
                                 <rect key="frame" x="0.0" y="67" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mFl-Hj-cNd" id="DZb-Ei-6Fc"/>
+                                    <outlet property="delegate" destination="mFl-Hj-cNd" id="htZ-JG-ZwX"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8g-0o-r9N">
                                 <rect key="frame" x="300" y="543" width="30" height="30"/>
@@ -319,6 +323,9 @@
                         <viewLayoutGuide key="safeArea" id="v7b-vA-ssq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="수입_bar" selectedImage="수입_bar" id="mWr-Vr-cYd"/>
+                    <connections>
+                        <outlet property="incomeTableview" destination="2rC-Fb-5Hr" id="P7S-Uw-mtj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldH-ka-Tx1" sceneMemberID="firstResponder"/>
             </objects>

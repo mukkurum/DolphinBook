@@ -104,19 +104,10 @@ public class Database1 {
         }
         return expense_list
         
-        
-//        do {
-//            print("========== 지출 상황 ==========")
-//            for expense in try db!.prepare(self.ExpenseTable) {
-//                let time_ = getStringDayInfo(from: expense[time])
-//                print("time: \(time_), money: \(expense[money])원, content: \(expense[content])")
-//            }
-//        } catch {
-//            print("Cannot get list of product")
-//        }
+    
     }
     // 수입 출력 함수
-    func loadIncome() {
+    /*func loadIncome() {
         do {
             print("========== 수입 상황 ==========")
             for income in try db!.prepare(self.IncomeTable) {
@@ -126,7 +117,22 @@ public class Database1 {
         } catch {
             print("Cannot get list of product")
         }
+    }*/
+    func loadIncome() -> Array<Array<String>> {
+        var income_list: Array<Array<String>> = []
+        do {
+            for income in try db!.prepare(self.IncomeTable) {
+                var temp_list: Array<String> = []
+                let time_ = getStringDayInfo(from: income[time])
+                print("time: \(time_), money: \(income[money])원, content: \(income[content])")
+                temp_list.append(time_)
+                temp_list.append(String(income[money]))
+                temp_list.append(income[content])
+                income_list.append(temp_list)
+            }
+        } catch {
+            print("Cannot get list of product")
+        }
+        return income_list
     }
-
-    
 }
