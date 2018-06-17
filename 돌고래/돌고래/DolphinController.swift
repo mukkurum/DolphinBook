@@ -12,8 +12,7 @@ class DolphinController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 데이터 베이스 생성
-//        let database = Database1(DBName: "db_dolphin1")      
+        changeDolphinImage()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +20,144 @@ class DolphinController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBOutlet weak var dolphinImageView: UIImageView!
+    @IBOutlet weak var messageImageView: UIImageView!
+    
+    
+    func loadExpenseTable() -> Array<Array<String>> {
+        return Database1.DolphinDatabase.loadExpense()
+    }
+    func loadIncomeTable() -> Array<Array<String>> {
+        return Database1.DolphinDatabase.loadIncome()
+    }
+    
+    
+    // 돌고래 사진 바꿔주는 함수
+    func changeDolphinImage() {
+        // 지출, 수입 data 전역변수 로드
+        Database1.ExpenseList = loadExpenseTable()
+        Database1.IncomeList = loadIncomeTable()
+        
+        // 기본 돌고래 이미지
+        dolphinImageView.image = UIImage(named: "dolphin_03")
+        
+        // 오늘이 몇년 몇월인지 가져옴
+        let today_ = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMM"
+        let today_year_month = dateFormatter.string(from: today_)
+        
+        // 이번달 총 수입 계산
+        var month_income_sum = 0
+        for income in Database1.IncomeList {
+            let income_year_month = income[0].split(separator: "-")[0] + income[0].split(separator: "-")[1]
+            if income_year_month == today_year_month { // 같은 연, 월 확인
+                month_income_sum += Int(income[1])!
+            }
+        }
+        // 이번달 수입이 없을 경우
+        if month_income_sum == 0 {
+            messageImageView.image = UIImage(named: "말풍선_pre_test")
+        }
+        // 이번달 수입이 있을 경우
+        else {
+            // 이번달 총 지출 계산
+            var month_expense_sum = 0 // 이번달 총 수입
+            for expense in Database1.ExpenseList {
+                let expense_year_month = expense[0].split(separator: "-")[0] + expense[0].split(separator: "-")[1]
+                if expense_year_month == today_year_month { // 같은 달 확인
+                    month_expense_sum += Int(expense[1])!
+                }
+            }
+            let left_money = month_income_sum - month_expense_sum // 남은 돈
+            let left_money_per = (left_money*100 / month_income_sum) // 남은 돈 %로 표현
+            
+            print("\(left_money)원")
+            print("\(left_money_per)%")
+            
+            // 남은 돈이 마이너스 일때
+            if left_money < 0 {
+                messageImageView.image = UIImage(named: "말풍선_06_test")
+                dolphinImageView.image = UIImage(named: "dolphin_05")
+            }
+            // 돈이 90% 이상 남은경우
+            else if left_money_per >= 90 {
+                messageImageView.image = UIImage(named: "말풍선_01_test")
+                dolphinImageView.image = UIImage(named: "dolphin_01")
+            }
+            else {
+                // 오늘이 몇일인지 가져옴
+                dateFormatter.dateFormat = "dd"
+                let today_day = Int(dateFormatter.string(from: today_))!
+                
+                let avg_left_money = month_income_sum - (month_income_sum * today_day)/30 // 권장 남은 돈
+                let avg_left_money_per = (avg_left_money*100 / month_income_sum)  // 권장 남은 돈 %로 표시
+                let dif_left_money_per = left_money_per - avg_left_money_per // (남은 돈 %) - (권장 남은돈 %)
+                
+                if today_day <= 10 { // 월초 (1~10)
+                    if dif_left_money_per >= 15 {
+                        messageImageView.image = UIImage(named: "말풍선_01_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_01")
+                    }
+                    else if dif_left_money_per >= 5 {
+                        messageImageView.image = UIImage(named: "말풍선_02_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_02")
+                    }
+                    else if dif_left_money_per >= -5 {
+                        messageImageView.image = UIImage(named: "말풍선_03_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_03")
+                    }
+                    else {
+                        messageImageView.image = UIImage(named: "말풍선_04_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_04")
+                    }
+                }
+                else if today_day <= 20 { // 월중 (11~20)
+                    if dif_left_money_per >= 15 {
+                        messageImageView.image = UIImage(named: "말풍선_01_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_01")
+                    }
+                    else if dif_left_money_per >= 5 {
+                        messageImageView.image = UIImage(named: "말풍선_02_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_02")
+                    }
+                    else if dif_left_money_per >= -5 {
+                        messageImageView.image = UIImage(named: "말풍선_03_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_03")
+                    }
+                    else if dif_left_money_per >= -15 {
+                        messageImageView.image = UIImage(named: "말풍선_04_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_04")
+                    }
+                    else {
+                        messageImageView.image = UIImage(named: "말풍선_05_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_05")
+                    }
+                } else { // 월말 (21~31)
+                    if dif_left_money_per >= 15 {
+                        messageImageView.image = UIImage(named: "말풍선_01_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_01")
+                    }
+                    else if dif_left_money_per >= 5 {
+                        messageImageView.image = UIImage(named: "말풍선_02_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_02")
+                    }
+                    else if dif_left_money_per >= -5 {
+                        messageImageView.image = UIImage(named: "말풍선_04_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_04")
+                    }
+                    else {
+                        messageImageView.image = UIImage(named: "말풍선_05_test")
+                        dolphinImageView.image = UIImage(named: "dolphin_05")
+                    }
+                }
+            }
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        changeDolphinImage()
+    }
+    
     /*
     // MARK: - Navigation
 
