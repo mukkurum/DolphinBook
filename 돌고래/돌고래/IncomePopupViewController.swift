@@ -10,6 +10,8 @@ import UIKit
 
 class IncomePopupViewController: UIViewController {
 
+    var delegate:incomeDelgate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +28,7 @@ class IncomePopupViewController: UIViewController {
     
     // 지출, 수입 입력 취소 버튼
     @IBAction func closePopup(_ sender: Any) {
+        delegate?.reloadData()
         self.view.removeFromSuperview()
     }
     
@@ -50,7 +53,14 @@ class IncomePopupViewController: UIViewController {
             let input_money = Int(incomeMoney.text!)
             let input_content = incomeContent.text
             Database1.DolphinDatabase.addIncome(time_: date_!, money_: input_money!, content_: input_content!)
+            
+            var temp_list: Array<String> = []
+            temp_list.append(incomeDate.text!)
+            temp_list.append(incomeMoney.text!)
+            temp_list.append(incomeContent.text!)
+            Database1.IncomeList.append(temp_list)
         }
+        delegate?.reloadData()
         self.view.removeFromSuperview()
     }
     

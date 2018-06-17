@@ -44,9 +44,11 @@ class ExpenseController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     @IBAction func showPopup(_ sender: Any) {
+        
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "expense_history") as! ExpensePopupViewController
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
+        popOverVC.delegate = self
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
     }
