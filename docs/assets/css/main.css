@@ -2253,7 +2253,7 @@ input, select, textarea {
 				border: solid 1px;
 				text-align: center;
 			}
-
+            
 		.icon.alt {
 			display: inline-block;
 			border: solid 1px;
@@ -2997,7 +2997,7 @@ input, select, textarea {
 			border: solid 1px;
 		}
 
-			.spotlight .image img {
+			.spotlight .imagesq img {
 				display: block;
 				width: 16em;
 			}
@@ -3060,6 +3060,14 @@ input, select, textarea {
 			}
 
 				.spotlight .image img {
+					width: 12em;
+				}
+
+			.spotlight .imagesq {
+				padding: 0.35em;
+			}
+
+				.spotlight .imagesq img {
 					width: 12em;
 				}
 
