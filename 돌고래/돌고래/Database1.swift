@@ -11,9 +11,10 @@ import SQLite
 
 public class Database1 {
     static let DolphinDatabase:Database1 = Database1(DBName: "db_dolphin1")
-    static var ExpenseList: Array<Array<String>> = []
-    static var IncomeList: Array<Array<String>> = []
-    
+    static var focus_year_month_expense: String = ""
+    static var ExpenseList: Array<Array<String>> = [] // 포커스 되어있는 달의 지출
+    static var IncomeList: Array<Array<String>> = [] // 전체 수입
+
     private let db: Connection?
     
     private let ExpenseTable = Table("ExpenseTable")
@@ -80,28 +81,47 @@ public class Database1 {
         }
     }
     
+    // 지출 삭제 함수
+    func delExpense(index: Int64) {
+        do {
+            let selected_row = ExpenseTable.filter(id == index)
+            try db!.run(selected_row.delete())
+        } catch {
+            print("Cannot delete row")
+            return
+        }
+    }
+    
+    
+    
     // Date형을 String으로 변형
     func getStringDayInfo(from:Date)->String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: from)
     }
-    // 지출 로드 함수
-    func loadExpense() -> Array<Array<String>> {
+    // 지출 로드 함수 (선택된 달의 지출만 로드)
+    func loadExpense(focus_year_month: String) -> Array<Array<String>> {
         var expense_list: Array<Array<String>> = []
         do {
             for expense in try db!.prepare(self.ExpenseTable) {
-                var temp_list: Array<String> = []
                 let time_ = getStringDayInfo(from: expense[time])
-                print("time: \(time_), money: \(expense[money])원, content: \(expense[content])")
-                temp_list.append(time_)
-                temp_list.append(String(expense[money]))
-                temp_list.append(expense[content])
-                expense_list.append(temp_list)
+                let expense_year_month = time_.split(separator: "-")[0] + time_.split(separator: "-")[1]
+                if expense_year_month == focus_year_month {
+                    var temp_list: Array<String> = []
+                    print("time: \(time_), money: \(expense[money])원, content: \(expense[content])")
+                    temp_list.append(time_)
+                    temp_list.append(String(expense[money]))
+                    temp_list.append(expense[content])
+                    temp_list.append(String(expense[id]))
+                    expense_list.append(temp_list)
+                }
             }
         } catch {
             print("Cannot get list of product")
         }
+        // 날짜 순 sort
+        expense_list = expense_list.sorted(by: { $0[0] < $1[0] })
         return expense_list
         
     
@@ -133,6 +153,8 @@ public class Database1 {
         } catch {
             print("Cannot get list of product")
         }
+        // 날짜 순 sort
+        income_list = income_list.sorted(by: { $0[0] < $1[0] })
         return income_list
     }
 }
