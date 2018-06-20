@@ -21,11 +21,17 @@ class IncomeController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "incomeCell", for: indexPath)
         
         let row_ = Database1.IncomeList[indexPath.row]
-        cell.textLabel?.text = "\(row_[0]): \(row_[1])원, \(row_[2])"
+
+        let money_int = Int(row_[1])!
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        let money_ = numberFormatter.string(from: NSNumber(value: money_int))!
         
+        cell.textLabel?.text = "\(row_[0]):     \(row_[2])"
+        cell.detailTextLabel?.text = "\(money_) 원"
         return(cell)
     }
     override func viewDidLoad() {

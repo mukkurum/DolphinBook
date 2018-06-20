@@ -59,6 +59,8 @@ class IncomePopupViewController: UIViewController {
             temp_list.append(incomeMoney.text!)
             temp_list.append(incomeContent.text!)
             Database1.IncomeList.append(temp_list)
+            // 날짜 순 sort
+            Database1.IncomeList = Database1.IncomeList.sorted(by: { $0[0] < $1[0] })
         }
         delegate?.reloadData()
         self.view.removeFromSuperview()

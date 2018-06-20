@@ -9,6 +9,14 @@
 import UIKit
 
 class DolphinController: UIViewController {
+    
+    func getToday() -> String {
+        // 오늘이 몇년 몇월인지 가져옴
+        let today_ = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMM"
+        return dateFormatter.string(from: today_)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +33,7 @@ class DolphinController: UIViewController {
     
     
     func loadExpenseTable() -> Array<Array<String>> {
-        return Database1.DolphinDatabase.loadExpense()
+        return Database1.DolphinDatabase.loadExpense(focus_year_month: getToday())
     }
     func loadIncomeTable() -> Array<Array<String>> {
         return Database1.DolphinDatabase.loadIncome()
@@ -57,17 +65,14 @@ class DolphinController: UIViewController {
         }
         // 이번달 수입이 없을 경우
         if month_income_sum == 0 {
-            messageImageView.image = UIImage(named: "message_pre_test")
+            messageImageView.image = UIImage(named: "message_pre")
         }
         // 이번달 수입이 있을 경우
         else {
             // 이번달 총 지출 계산
             var month_expense_sum = 0 // 이번달 총 수입
             for expense in Database1.ExpenseList {
-                let expense_year_month = expense[0].split(separator: "-")[0] + expense[0].split(separator: "-")[1]
-                if expense_year_month == today_year_month { // 같은 달 확인
-                    month_expense_sum += Int(expense[1])!
-                }
+                month_expense_sum += Int(expense[1])!
             }
             let left_money = month_income_sum - month_expense_sum // 남은 돈
             let left_money_per = (left_money*100 / month_income_sum) // 남은 돈 %로 표현
@@ -75,14 +80,14 @@ class DolphinController: UIViewController {
             print("\(left_money)원")
             print("\(left_money_per)%")
             
-            // 남은 돈이 마이너스 일때
-            if left_money < 0 {
-                messageImageView.image = UIImage(named: "message_06_test")
+            // 남은 돈을 다 쓰거나 마이너스 일 때
+            if left_money <= 0 {
+                messageImageView.image = UIImage(named: "message_06")
                 dolphinImageView.image = UIImage(named: "dolphin_05")
             }
             // 돈이 90% 이상 남은경우
             else if left_money_per >= 90 {
-                messageImageView.image = UIImage(named: "message_01_test")
+                messageImageView.image = UIImage(named: "message_01")
                 dolphinImageView.image = UIImage(named: "dolphin_01")
             }
             else {
@@ -96,58 +101,58 @@ class DolphinController: UIViewController {
                 
                 if today_day <= 10 { // 월초 (1~10)
                     if dif_left_money_per >= 15 {
-                        messageImageView.image = UIImage(named: "message_01_test")
+                        messageImageView.image = UIImage(named: "message_01")
                         dolphinImageView.image = UIImage(named: "dolphin_01")
                     }
                     else if dif_left_money_per >= 5 {
-                        messageImageView.image = UIImage(named: "message_02_test")
+                        messageImageView.image = UIImage(named: "message_02")
                         dolphinImageView.image = UIImage(named: "dolphin_02")
                     }
                     else if dif_left_money_per >= -5 {
-                        messageImageView.image = UIImage(named: "message_03_test")
+                        messageImageView.image = UIImage(named: "message_03")
                         dolphinImageView.image = UIImage(named: "dolphin_03")
                     }
                     else {
-                        messageImageView.image = UIImage(named: "message_04_test")
+                        messageImageView.image = UIImage(named: "message_04")
                         dolphinImageView.image = UIImage(named: "dolphin_04")
                     }
                 }
                 else if today_day <= 20 { // 월중 (11~20)
                     if dif_left_money_per >= 15 {
-                        messageImageView.image = UIImage(named: "message_01_test")
+                        messageImageView.image = UIImage(named: "message_01")
                         dolphinImageView.image = UIImage(named: "dolphin_01")
                     }
                     else if dif_left_money_per >= 5 {
-                        messageImageView.image = UIImage(named: "message_02_test")
+                        messageImageView.image = UIImage(named: "message_02")
                         dolphinImageView.image = UIImage(named: "dolphin_02")
                     }
                     else if dif_left_money_per >= -5 {
-                        messageImageView.image = UIImage(named: "message_03_test")
+                        messageImageView.image = UIImage(named: "message_03")
                         dolphinImageView.image = UIImage(named: "dolphin_03")
                     }
                     else if dif_left_money_per >= -15 {
-                        messageImageView.image = UIImage(named: "message_04_test")
+                        messageImageView.image = UIImage(named: "message_04")
                         dolphinImageView.image = UIImage(named: "dolphin_04")
                     }
                     else {
-                        messageImageView.image = UIImage(named: "message_05_test")
+                        messageImageView.image = UIImage(named: "message_05")
                         dolphinImageView.image = UIImage(named: "dolphin_05")
                     }
                 } else { // 월말 (21~31)
                     if dif_left_money_per >= 15 {
-                        messageImageView.image = UIImage(named: "message_01_test")
+                        messageImageView.image = UIImage(named: "message_01")
                         dolphinImageView.image = UIImage(named: "dolphin_01")
                     }
                     else if dif_left_money_per >= 5 {
-                        messageImageView.image = UIImage(named: "message_02_test")
+                        messageImageView.image = UIImage(named: "message_02")
                         dolphinImageView.image = UIImage(named: "dolphin_02")
                     }
                     else if dif_left_money_per >= -5 {
-                        messageImageView.image = UIImage(named: "message_04_test")
+                        messageImageView.image = UIImage(named: "message_04")
                         dolphinImageView.image = UIImage(named: "dolphin_04")
                     }
                     else {
-                        messageImageView.image = UIImage(named: "message_05_test")
+                        messageImageView.image = UIImage(named: "message_05")
                         dolphinImageView.image = UIImage(named: "dolphin_05")
                     }
                 }

@@ -12,6 +12,14 @@ class ExpensePopupViewController: UIViewController {
 
     var delegate:expenseDelgate?
     
+    func getToday() -> String {
+        // 오늘이 몇년 몇월인지 가져옴
+        let today_ = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMM"
+        return dateFormatter.string(from: today_)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,11 +61,11 @@ class ExpensePopupViewController: UIViewController {
             let input_content = expenseContent.text
             Database1.DolphinDatabase.addExpense(time_: date_!, money_: input_money!, content_: input_content!)
             
-            var temp_list: Array<String> = []
-            temp_list.append(expenseDate.text!)
-            temp_list.append(expenseMoney.text!)
-            temp_list.append(expenseContent.text!)
-            Database1.ExpenseList.append(temp_list)
+            if dateSplit![0] + dateSplit![1] == Database1.focus_year_month_expense {
+                Database1.ExpenseList = Database1.DolphinDatabase.loadExpense(focus_year_month: Database1.focus_year_month_expense)
+                // 날짜 순 sort
+                Database1.ExpenseList = Database1.ExpenseList.sorted(by: { $0[0] < $1[0] })
+            }
         }
         delegate?.reloadData()
         self.view.removeFromSuperview()
