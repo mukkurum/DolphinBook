@@ -12,8 +12,10 @@ import SQLite
 public class Database1 {
     static let DolphinDatabase:Database1 = Database1(DBName: "db_dolphin1")
     static var focus_year_month_expense: String = ""
+    static var focus_year_month_income: String = ""
     static var ExpenseList: Array<Array<String>> = [] // 포커스 되어있는 달의 지출
     static var IncomeList: Array<Array<String>> = [] // 전체 수입
+    static var IncomeListMonth: Array<Array<String>> = [] // 포커스 되어있는 달의 수입
 
     private let db: Connection?
     
@@ -91,7 +93,16 @@ public class Database1 {
             return
         }
     }
-    
+    // 수입 삭제 함수
+    func delIncome(index: Int64) {
+        do {
+            let selected_row = IncomeTable.filter(id == index)
+            try db!.run(selected_row.delete())
+        } catch {
+            print("Cannot delete row")
+            return
+        }
+    }
     
     
     // Date형을 String으로 변형
@@ -109,7 +120,7 @@ public class Database1 {
                 let expense_year_month = time_.split(separator: "-")[0] + time_.split(separator: "-")[1]
                 if expense_year_month == focus_year_month {
                     var temp_list: Array<String> = []
-                    print("time: \(time_), money: \(expense[money])원, content: \(expense[content])")
+//                    print("time: \(time_), money: \(expense[money])원, content: \(expense[content])")
                     temp_list.append(time_)
                     temp_list.append(String(expense[money]))
                     temp_list.append(expense[content])
@@ -123,32 +134,43 @@ public class Database1 {
         // 날짜 순 sort
         expense_list = expense_list.sorted(by: { $0[0] < $1[0] })
         return expense_list
-        
-    
     }
-    // 수입 출력 함수
-    /*func loadIncome() {
-        do {
-            print("========== 수입 상황 ==========")
-            for income in try db!.prepare(self.IncomeTable) {
-                let time_ = getStringDayInfo(from: income[time])
-                print("time: \(time_), money: \(income[money])원, content: \(income[content])")
-            }
-        } catch {
-            print("Cannot get list of product")
-        }
-    }*/
+    // 수입 로드 함수 (전체 수입 로드)
     func loadIncome() -> Array<Array<String>> {
         var income_list: Array<Array<String>> = []
         do {
             for income in try db!.prepare(self.IncomeTable) {
                 var temp_list: Array<String> = []
                 let time_ = getStringDayInfo(from: income[time])
-                print("time: \(time_), money: \(income[money])원, content: \(income[content])")
+//                print("time: \(time_), money: \(income[money])원, content: \(income[content])")
                 temp_list.append(time_)
                 temp_list.append(String(income[money]))
                 temp_list.append(income[content])
+                temp_list.append(String(income[id]))
                 income_list.append(temp_list)
+            }
+        } catch {
+            print("Cannot get list of product")
+        }
+        // 날짜 순 sort
+        income_list = income_list.sorted(by: { $0[0] < $1[0] })
+        return income_list
+    }
+    // 수입 로드 함수 (선택된 달의 지출만 로드)
+    func loadIncomeMonth(focus_year_month: String) -> Array<Array<String>> {
+        var income_list: Array<Array<String>> = []
+        do {
+            for income in try db!.prepare(self.IncomeTable) {
+                let time_ = getStringDayInfo(from: income[time])
+                let income_year_month = time_.split(separator: "-")[0] + time_.split(separator: "-")[1]
+                if income_year_month == focus_year_month {
+                    var temp_list: Array<String> = []
+                    temp_list.append(time_)
+                    temp_list.append(String(income[money]))
+                    temp_list.append(income[content])
+                    temp_list.append(String(income[id]))
+                    income_list.append(temp_list)
+                }
             }
         } catch {
             print("Cannot get list of product")

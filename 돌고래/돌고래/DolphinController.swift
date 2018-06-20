@@ -47,7 +47,7 @@ class DolphinController: UIViewController {
         Database1.IncomeList = loadIncomeTable()
         
         // 기본 돌고래 이미지
-        dolphinImageView.image = UIImage(named: "dolphin_03")
+        dolphinImageView.image = UIImage(named: "dolphin_pre")
         
         // 오늘이 몇년 몇월인지 가져옴
         let today_ = Date()

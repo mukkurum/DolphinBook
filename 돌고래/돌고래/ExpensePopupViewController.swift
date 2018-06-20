@@ -12,14 +12,6 @@ class ExpensePopupViewController: UIViewController {
 
     var delegate:expenseDelgate?
     
-    func getToday() -> String {
-        // 오늘이 몇년 몇월인지 가져옴
-        let today_ = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMM"
-        return dateFormatter.string(from: today_)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

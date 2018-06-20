@@ -11,14 +11,13 @@ import UIKit
 class IncomePopupViewController: UIViewController {
 
     var delegate:incomeDelgate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         
         createDatePicker()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +36,7 @@ class IncomePopupViewController: UIViewController {
     @IBOutlet weak var incomeMoney: UITextField!
     @IBOutlet weak var incomeContent: UITextField!
     
-    @IBAction func inomeSave(_ sender: Any) {
+    @IBAction func incomeSave(_ sender: Any) {
         // 수입 정보 미입력 시
         if (incomeDate.text?.isEmpty)! || incomeMoney.text == nil || (incomeContent.text?.isEmpty)! {
             print("textFields are empty!")
@@ -53,14 +52,15 @@ class IncomePopupViewController: UIViewController {
             let input_money = Int(incomeMoney.text!)
             let input_content = incomeContent.text
             Database1.DolphinDatabase.addIncome(time_: date_!, money_: input_money!, content_: input_content!)
-            
-            var temp_list: Array<String> = []
-            temp_list.append(incomeDate.text!)
-            temp_list.append(incomeMoney.text!)
-            temp_list.append(incomeContent.text!)
-            Database1.IncomeList.append(temp_list)
-            // 날짜 순 sort
-            Database1.IncomeList = Database1.IncomeList.sorted(by: { $0[0] < $1[0] })
+        
+            if dateSplit![0] + dateSplit![1] == Database1.focus_year_month_income {
+                // 지정 달의 수입 저장
+                Database1.IncomeListMonth = Database1.DolphinDatabase.loadIncomeMonth(focus_year_month: Database1.focus_year_month_income)
+                // 날짜 순 sort
+                Database1.IncomeListMonth = Database1.IncomeListMonth.sorted(by: { $0[0] < $1[0] })
+            }
+            // 전체 수입 저장
+            Database1.IncomeList = Database1.DolphinDatabase.loadIncome()
         }
         delegate?.reloadData()
         self.view.removeFromSuperview()
