@@ -42,7 +42,7 @@ class ExpenseController: UIViewController, UITableViewDelegate, UITableViewDataS
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         let left_money_ = numberFormatter.string(from: NSNumber(value: left_money))
-        moneyLeftField.text = left_money_! + " 원"
+        moneyLeftField.text = left_money_! + " ￦"
     }
     
     func reloadData() {
@@ -64,7 +64,7 @@ class ExpenseController: UIViewController, UITableViewDelegate, UITableViewDataS
         let money_ = numberFormatter.string(from: NSNumber(value: money_int))!
         
         cell.textLabel?.text = "\(row_[0]):     \(row_[2])"
-        cell.detailTextLabel?.text = "\(money_) 원"
+        cell.detailTextLabel?.text = "\(money_) ￦"
         
         return(cell)
     }

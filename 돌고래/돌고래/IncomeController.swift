@@ -37,7 +37,7 @@ class IncomeController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         let month_income_sum_ = numberFormatter.string(from: NSNumber(value: month_income_sum))
-        incomeMonthField.text = month_income_sum_! + " 원"
+        incomeMonthField.text = month_income_sum_! + " ￦"
     }
     
     func reloadData() {
@@ -59,7 +59,7 @@ class IncomeController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let money_ = numberFormatter.string(from: NSNumber(value: money_int))!
         
         cell.textLabel?.text = "\(row_[0]):     \(row_[2])"
-        cell.detailTextLabel?.text = "\(money_) 원"
+        cell.detailTextLabel?.text = "\(money_) ￦"
         return(cell)
     }
     
